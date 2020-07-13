@@ -1,8 +1,9 @@
 package routers
 
 import (
-	v1 "chensj.com/studygo/go_mod_test/go_mod_test/routers/api/v1"
 	"chensj.com/studygo/go_mod_test/pkg/setting"
+	"chensj.com/studygo/go_mod_test/routers/api"
+	v1 "chensj.com/studygo/go_mod_test/routers/api/v1"
 	"github.com/gin-gonic/gin"
 )
 
@@ -13,6 +14,8 @@ func InitRouter() *gin.Engine {
 	r.Use(gin.Logger())
 	r.Use(gin.Recovery())
 	gin.SetMode(setting.RunMode)
+
+	r.GET("/auth", api.GetAuth)
 
 	apiv1 := r.Group("api/v1")
 	{

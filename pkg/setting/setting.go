@@ -15,7 +15,7 @@ var (
 	WriteTimeout time.Duration
 
 	PageSize  int
-	JetSecret string
+	JwtSecret string
 )
 
 func Init() {
@@ -47,5 +47,5 @@ func LoadApp() {
 	// 	return
 	// }
 	PageSize = Cfg.Section("app").Key("PAGE_SIZE").MustInt(10)
-	JetSecret = Cfg.Section("app").Key("JWT_SECRET").MustString("!@)*#)!@U#@*!@!)")
+	JwtSecret = Cfg.Section("app").Key("JWT_SECRET").MustString("!@)*#)!@U#@*!@!)")
 }
