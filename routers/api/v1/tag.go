@@ -14,6 +14,7 @@ import (
 
 // GetTags 获取多个文章标签
 func GetTags(c *gin.Context) {
+
 	name := c.Query("name")
 
 	maps := make(map[string]interface{})

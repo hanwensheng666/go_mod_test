@@ -1,9 +1,9 @@
 package setting
 
 import (
-	"log"
 	"time"
 
+	"chensj.com/studygo/go_mod_test/pkg/logging"
 	"gopkg.in/ini.v1"
 )
 
@@ -22,7 +22,7 @@ func Init() {
 	var err error
 	Cfg, err = ini.Load("conf/app.ini")
 	if err != nil {
-		log.Fatalf("Fail to parse app.ini  err:%v", err)
+		logging.Fatal("Fail to parse app.ini  err:%v", err)
 		return
 	}
 	LoadBase()

@@ -1,6 +1,7 @@
 package routers
 
 import (
+	"chensj.com/studygo/go_mod_test/middleware/jwt"
 	"chensj.com/studygo/go_mod_test/pkg/setting"
 	"chensj.com/studygo/go_mod_test/routers/api"
 	v1 "chensj.com/studygo/go_mod_test/routers/api/v1"
@@ -18,6 +19,7 @@ func InitRouter() *gin.Engine {
 	r.GET("/auth", api.GetAuth)
 
 	apiv1 := r.Group("api/v1")
+	apiv1.Use(jwt.JWT())
 	{
 		//获取标签列表
 		apiv1.GET("/tags", v1.GetTags)
